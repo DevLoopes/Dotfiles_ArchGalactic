@@ -338,7 +338,31 @@ label:focus {
     color: #ffffff; /* Cor branca para o ícone */
     background-color: #ff5555;
 }
+#battery {
+    background-color: #ffffff;
+    color: #222222;
+    padding: 0 10px;
+}
 
+#battery.charging, #battery.plugged {
+    color: #ffffff;
+    background-color: #26A65B; /* Verde ao carregar */
+}
+#battery.critical:not(.charging) {
+    background-color: #f53c3c; /* Vermelho no crítico */
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
 * {
     font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", Helvetica, Arial, sans-serif;
     font-size: 13px;
